@@ -26,14 +26,14 @@ export default function Footer() {
           gap: '1.5rem',
           flexWrap: 'wrap',
         }}>
-          <Logo height={48} />
-          <div style={{ width: '1px', height: '44px', background: 'var(--border)' }} />
+          <Logo height={56} />
+          <div style={{ width: '1px', height: '52px', background: 'var(--border)' }} />
           <Image
             src="/logodesginholistico.png"
             alt="Design Holístico Interiores"
-            width={200}
-            height={48}
-            style={{ objectFit: 'contain', height: '48px', width: 'auto' }}
+            width={220}
+            height={56}
+            style={{ objectFit: 'contain', height: '56px', width: 'auto' }}
           />
         </div>
 
