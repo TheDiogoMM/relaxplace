@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm list:*)",
+      "Bash(npx @21st-dev/magic --version)"
+    ]
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "mcpServers": {
+    "Magic": {
+      "command": "npx",
+      "args": ["-y", "@21st-dev/magic@latest"],
+      "env": {
+        "TWENTY_FIRST_API_KEY": "an_sk_cfbdd997eedd180a951429f6febe42afa39565d25bb352fac9aca2519eee8622"
+      }
+    },
+    "Stitch": {
+      "command": "npx",
+      "args": ["-y", "@_davideast/stitch-mcp", "proxy"],
+      "env": {
+        "CLOUDSDK_CONFIG": "C:\\Users\\Diogo\\.stitch-mcp\\config"
+      }
+    }
+  },
+  "permissions": {
+    "allow": [
+      "Bash(npm run:*)",
+      "Bash(npm install:*)",
+      "Bash(npx:*)",
+      "Bash(npx shadcn@latest add:*)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:21st.dev)",
+      "WebFetch(domain:stitch.withgoogle.com)",
+      "WebSearch"
+    ]
+  }
+}
