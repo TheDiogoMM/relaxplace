@@ -28,6 +28,11 @@ export const metadata: Metadata = {
     'Descubra qual dos cinco elementos da MTC governa sua vida. Uma jornada de autoconhecimento, saúde e equilíbrio holístico.',
   keywords:
     'medicina tradicional chinesa, cinco elementos, terapias holísticas, bem-estar, autoconhecimento',
+  icons: {
+    icon:        '/logoimg.png',
+    shortcut:    '/logoimg.png',
+    apple:       '/logoimg.png',
+  },
   openGraph: {
     title: 'Relax Place — Seu Elemento da MTC',
     description:
