@@ -52,8 +52,9 @@ export default function FormularioPage() {
             lineHeight: 1.7,
             margin:     0,
           }}>
-            Informe seus dados para descobrir o elemento que rege sua vida
-            segundo a Medicina Tradicional Chinesa.
+            Segundo a Medicina Tradicional Chinesa, cada pessoa nasce com um elemento
+            predominante que influencia diretamente sua energia e forma de se relacionar
+            com os ambientes.
           </p>
         </div>
 

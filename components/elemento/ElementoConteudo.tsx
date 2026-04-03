@@ -11,20 +11,18 @@ interface Props {
   ciclo:    { anterior: Elemento; proximo: Elemento }
 }
 
-export default function ElementoConteudo({ elemento, conteudo, ciclo }: Props) {
-  const cores   = CORES_ELEMENTO[elemento]
-  const nomeEl  = NOMES_ELEMENTO[elemento]
-  const nomeAnt = NOMES_ELEMENTO[ciclo.anterior]
-  const nomePro = NOMES_ELEMENTO[ciclo.proximo]
+export default function ElementoConteudo({ elemento, conteudo, ciclo: _ciclo }: Props) {
+  const cores  = CORES_ELEMENTO[elemento]
+  const nomeEl = NOMES_ELEMENTO[elemento]
 
   return (
     <section style={{
       background: 'var(--bg)',
       padding:    'clamp(2.5rem, 5vw, 3.5rem) 1.25rem',
     }}>
-      <div style={{ maxWidth: '900px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '2.5rem' }}>
+      <div style={{ maxWidth: '860px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '2rem' }}>
 
-        {/* Texto do ciclo */}
+        {/* Bloco principal: Ambiente */}
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -34,26 +32,36 @@ export default function ElementoConteudo({ elemento, conteudo, ciclo }: Props) {
             background:   'var(--surface)',
             border:       '1px solid var(--border)',
             borderLeft:   `3px solid ${cores.c}`,
-            borderRadius: '12px',
-            padding:      '1.5rem 1.75rem',
+            borderRadius: '14px',
+            padding:      'clamp(1.5rem, 3vw, 2rem) clamp(1.25rem, 3vw, 2rem)',
             display:      'flex',
             flexDirection:'column',
-            gap:          '0.75rem',
+            gap:          '1.1rem',
           }}
         >
-          <p className="section-tag">O Ciclo</p>
-          <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.9375rem', color: 'var(--ink-2)', lineHeight: 1.8, margin: 0 }}>
-            No caminho do equilíbrio holístico, suas práticas e o ambiente em que você vive devem priorizar
-            as energias do seu elemento principal (<strong style={{ color: cores.c }}>{nomeEl}</strong>) e
-            do elemento que o nutre e fortalece (<strong>{nomeAnt}</strong>).
+          <p className="section-tag" style={{ color: cores.c }}>Ambiente &amp; Energia</p>
+
+          <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.9375rem', color: 'var(--ink-2)', lineHeight: 1.85, margin: 0 }}>
+            {conteudo.descricaoAmbiente}
           </p>
-          <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.9375rem', color: 'var(--ink-2)', lineHeight: 1.8, margin: 0 }}>
-            Atenção ao equilíbrio: o elemento <strong>{nomePro}</strong> consome sua energia —
-            use sua influência com moderação para preservar sua vitalidade.
+          <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.9375rem', color: 'var(--ink-2)', lineHeight: 1.85, margin: 0 }}>
+            {conteudo.posicaoCiclo}
           </p>
+
+          {/* Aviso */}
+          <div style={{
+            background:   cores.bg,
+            borderRadius: '10px',
+            padding:      '1rem 1.25rem',
+            borderLeft:   `2px solid ${cores.c}`,
+          }}>
+            <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.875rem', color: 'var(--ink-2)', lineHeight: 1.8, margin: 0 }}>
+              {conteudo.avisoAmbiente}
+            </p>
+          </div>
         </motion.div>
 
-        {/* 4 cards */}
+        {/* Recomendações */}
         <motion.div
           variants={stagger}
           initial="hidden"
@@ -61,54 +69,153 @@ export default function ElementoConteudo({ elemento, conteudo, ciclo }: Props) {
           viewport={viewportOpts}
           style={{
             display:             'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 380px), 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 360px), 1fr))',
             gap:                 '1rem',
           }}
         >
-          <Card
-            titulo="Pontos Fortes"
+          {/* Cores do Elemento */}
+          <RecomendacaoCard
+            titulo="Cores do Elemento"
+            subtitulo={nomeEl}
+            texto={conteudo.coresElemento}
             cor={cores.c}
             bg={cores.bg}
-            items={conteudo.pontos}
+            icone="◉"
+          />
+
+          {/* Cores de Nutrição */}
+          <RecomendacaoCard
+            titulo="Cores de Nutrição"
+            subtitulo="Elemento Nutridor"
+            texto={conteudo.coresNutricao}
+            cor={cores.c}
+            bg={cores.bg}
             icone="✦"
           />
-          <Card
-            titulo="Desafios"
-            cor="var(--clay)"
-            bg="var(--clay-xl)"
-            items={conteudo.desafios}
-            icone="◈"
-          />
-          <Card
-            titulo="Órgãos e Sistemas"
-            cor="var(--slate-brand)"
-            bg="var(--slate-xl)"
-            items={[conteudo.orgaos]}
-            texto={conteudo.personalidade}
-            icone="♡"
-          />
-          <Card
-            titulo="Práticas Recomendadas"
-            cor={cores.d}
-            bg={cores.bg}
-            items={conteudo.praticas}
-            extra={`Alimentação: ${conteudo.alimentacao}`}
-            icone="◎"
-          />
         </motion.div>
+
+        {/* Formas */}
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOpts}
+          style={{
+            display:             'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 360px), 1fr))',
+            gap:                 '1rem',
+          }}
+        >
+          {/* Favoráveis */}
+          <div style={{
+            background:   'var(--surface)',
+            border:       '1px solid var(--border)',
+            borderTop:    `2px solid ${cores.c}`,
+            borderRadius: '12px',
+            padding:      '1.5rem',
+            display:      'flex',
+            flexDirection:'column',
+            gap:          '0.75rem',
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <span style={{ color: cores.c, fontSize: '13px' }}>◎</span>
+              <h3 style={{
+                fontFamily:    'var(--font-ui)',
+                fontWeight:    500,
+                fontSize:      '0.75rem',
+                letterSpacing: '0.1em',
+                textTransform: 'uppercase',
+                color:         cores.c,
+                margin:        0,
+              }}>
+                Formas Favoráveis
+              </h3>
+            </div>
+            <p style={{
+              fontFamily: 'var(--font-body)',
+              fontSize:   '0.9rem',
+              color:      'var(--ink-2)',
+              lineHeight: 1.7,
+              margin:     0,
+            }}>
+              {conteudo.formasFavoraveis}
+            </p>
+          </div>
+
+          {/* Menos favoráveis */}
+          <div style={{
+            background:   'var(--surface)',
+            border:       '1px solid var(--border)',
+            borderTop:    '2px solid var(--clay)',
+            borderRadius: '12px',
+            padding:      '1.5rem',
+            display:      'flex',
+            flexDirection:'column',
+            gap:          '0.75rem',
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <span style={{ color: 'var(--clay)', fontSize: '13px' }}>◈</span>
+              <h3 style={{
+                fontFamily:    'var(--font-ui)',
+                fontWeight:    500,
+                fontSize:      '0.75rem',
+                letterSpacing: '0.1em',
+                textTransform: 'uppercase',
+                color:         'var(--clay)',
+                margin:        0,
+              }}>
+                Formas Menos Favoráveis
+              </h3>
+            </div>
+            <p style={{
+              fontFamily: 'var(--font-body)',
+              fontSize:   '0.9rem',
+              color:      'var(--ink-2)',
+              lineHeight: 1.7,
+              margin:     0,
+            }}>
+              {conteudo.formasMenos}
+            </p>
+          </div>
+        </motion.div>
+
+        {/* Conclusão */}
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOpts}
+          style={{
+            textAlign:  'center',
+            padding:    '0 1rem',
+          }}
+        >
+          <p style={{
+            fontFamily: 'var(--font-body)',
+            fontStyle:  'italic',
+            fontSize:   '1rem',
+            color:      'var(--ink-2)',
+            lineHeight: 1.8,
+            margin:     0,
+            maxWidth:   '600px',
+            marginInline: 'auto',
+          }}>
+            {conteudo.conclusao}
+          </p>
+        </motion.div>
+
       </div>
     </section>
   )
 }
 
-function Card({ titulo, cor, bg, items, texto, extra, icone }: {
-  titulo:  string
-  cor:     string
-  bg:      string
-  items:   string[]
-  texto?:  string
-  extra?:  string
-  icone:   string
+function RecomendacaoCard({ titulo, subtitulo, texto, cor, bg, icone }: {
+  titulo:    string
+  subtitulo: string
+  texto:     string
+  cor:       string
+  bg:        string
+  icone:     string
 }) {
   return (
     <motion.div
@@ -121,73 +228,50 @@ function Card({ titulo, cor, bg, items, texto, extra, icone }: {
         padding:      '1.5rem',
         display:      'flex',
         flexDirection:'column',
-        gap:          '0.875rem',
+        gap:          '0.75rem',
       }}
     >
-      {/* Header */}
       <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-        <span style={{ fontSize: '14px', color: cor }}>{icone}</span>
-        <h3 style={{
-          fontFamily:    'var(--font-ui)',
-          fontWeight:    500,
-          fontSize:      '0.8125rem',
-          letterSpacing: '0.1em',
-          textTransform: 'uppercase',
-          color:         cor,
-          margin:        0,
-        }}>
-          {titulo}
-        </h3>
+        <span style={{ fontSize: '13px', color: cor }}>{icone}</span>
+        <div>
+          <h3 style={{
+            fontFamily:    'var(--font-ui)',
+            fontWeight:    500,
+            fontSize:      '0.75rem',
+            letterSpacing: '0.1em',
+            textTransform: 'uppercase',
+            color:         cor,
+            margin:        0,
+          }}>
+            {titulo}
+          </h3>
+          <p style={{
+            fontFamily: 'var(--font-ui)',
+            fontSize:   '0.7rem',
+            color:      'var(--ink-3)',
+            margin:     0,
+            letterSpacing: '0.02em',
+          }}>
+            {subtitulo}
+          </p>
+        </div>
       </div>
 
-      {/* Texto livre */}
-      {texto && (
+      <div style={{
+        background:   bg,
+        borderRadius: '8px',
+        padding:      '0.75rem 1rem',
+      }}>
         <p style={{
           fontFamily: 'var(--font-body)',
-          fontSize:   '0.875rem',
+          fontSize:   '0.9rem',
           color:      'var(--ink-2)',
-          lineHeight: 1.7,
+          lineHeight: 1.65,
           margin:     0,
         }}>
           {texto}
         </p>
-      )}
-
-      {/* Lista */}
-      <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '6px' }}>
-        {items.map(item => (
-          <li key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
-            <span style={{
-              width: '5px', height: '5px', borderRadius: '50%',
-              background: cor, flexShrink: 0, marginTop: '7px',
-            }} />
-            <span style={{
-              fontFamily: 'var(--font-body)',
-              fontSize:   '0.875rem',
-              color:      'var(--ink-2)',
-              lineHeight: 1.55,
-            }}>
-              {item}
-            </span>
-          </li>
-        ))}
-      </ul>
-
-      {/* Extra */}
-      {extra && (
-        <p style={{
-          fontFamily:  'var(--font-body)',
-          fontStyle:   'italic',
-          fontSize:    '0.8125rem',
-          color:       'var(--ink-3)',
-          lineHeight:  1.6,
-          margin:      0,
-          paddingTop:  '0.5rem',
-          borderTop:   '1px solid var(--border)',
-        }}>
-          {extra}
-        </p>
-      )}
+      </div>
     </motion.div>
   )
 }

@@ -133,7 +133,7 @@ export default function FormularioElemento() {
         value={form.nascimento}
         onChange={set('nascimento')}
         erro={erros.nascimento}
-        hint="A data exata é importante para o cálculo do calendário chinês."
+        hint="Sua data de nascimento é necessária para identificar seu elemento."
         autoComplete="bday"
         max={new Date().toISOString().split('T')[0]}
         min="1900-01-01"

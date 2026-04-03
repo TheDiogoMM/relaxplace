@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import Logo from './Logo'
 
 export default function Footer() {
@@ -17,8 +18,24 @@ export default function Footer() {
         gap: '1.5rem',
         textAlign: 'center',
       }}>
-        {/* Logo */}
-        <Logo height={36} />
+        {/* Logos */}
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: '1.5rem',
+          flexWrap: 'wrap',
+        }}>
+          <Logo height={48} />
+          <div style={{ width: '1px', height: '44px', background: 'var(--border)' }} />
+          <Image
+            src="/logodesginholistico.png"
+            alt="Design Holístico Interiores"
+            width={200}
+            height={48}
+            style={{ objectFit: 'contain', height: '48px', width: 'auto' }}
+          />
+        </div>
 
         {/* Tagline */}
         <p style={{
@@ -66,7 +83,7 @@ export default function Footer() {
           flexWrap: 'wrap',
         }}>
           <a
-            href="https://wa.me/5511999999999"
+            href="https://wa.me/5521986458880"
             target="_blank"
             rel="noopener noreferrer"
             style={contactLinkStyle}
@@ -75,12 +92,16 @@ export default function Footer() {
             <WhatsAppIcon />
             WhatsApp
           </a>
-          <a href="mailto:contato@relaxplace.com.br" style={contactLinkStyle} aria-label="E-mail do Relax Place">
+          <a
+            href="mailto:suporte.decorandocomafran@gmail.com"
+            style={contactLinkStyle}
+            aria-label="E-mail do Relax Place"
+          >
             <EmailIcon />
             E-mail
           </a>
           <a
-            href="https://instagram.com/relaxplace"
+            href="https://www.instagram.com/francoiselemosnova"
             target="_blank"
             rel="noopener noreferrer"
             style={contactLinkStyle}

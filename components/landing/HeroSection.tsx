@@ -46,11 +46,11 @@ export default function HeroSection() {
               margin: 0,
             }}
           >
-            Descubra o Elemento{' '}
+            Descubra o elemento que{' '}
             <em style={{ color: 'var(--sage-d)', fontStyle: 'italic' }}>
-              que Governa
+              potencializa
             </em>{' '}
-            a Sua Vida
+            sua energia!
           </motion.h1>
 
           {/* Parágrafo */}
@@ -65,9 +65,9 @@ export default function HeroSection() {
               margin: 0,
             }}
           >
-            Há mais de 3.000 anos, a Medicina Tradicional Chinesa revela que cada
-            pessoa nasce sob a influência de um dos cinco elementos da natureza.
-            Esse elemento molda sua personalidade, sua saúde e seu caminho de equilíbrio.
+            Segundo a Medicina Tradicional Chinesa, cada pessoa nasce com um elemento
+            predominante que influencia diretamente sua energia e forma de se relacionar
+            com os ambientes.
           </motion.p>
 
           {/* CTAs */}

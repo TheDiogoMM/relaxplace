@@ -27,17 +27,20 @@ export default function ElementoCTA() {
       >
         <p style={{
           fontFamily: 'var(--font-body)',
-          fontSize:   '1rem',
+          fontSize:   '1.0625rem',
           color:      'var(--ink-2)',
-          lineHeight: 1.75,
+          lineHeight: 1.8,
           margin:     0,
+          maxWidth:   '480px',
         }}>
-          Para aprofundar seu autoconhecimento e receber orientações personalizadas,
-          fale com nossa equipe.
+          Se você deseja um ambiente que sustente a sua energia — e não o contrário —
+          posso te orientar de forma personalizada.{' '}
+          <br />
+          Fale comigo e entenda como aplicar isso no seu espaço.
         </p>
 
         <a
-          href="https://wa.me/5511999999999"
+          href="https://wa.me/5521986458880"
           target="_blank"
           rel="noopener noreferrer"
           style={{
@@ -57,7 +60,7 @@ export default function ElementoCTA() {
           }}
         >
           <WhatsAppIcon />
-          Fale com o Relax Place →
+          Fale comigo →
         </a>
       </motion.div>
     </section>

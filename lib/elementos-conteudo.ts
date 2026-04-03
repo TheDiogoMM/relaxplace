@@ -1,81 +1,138 @@
 import type { Elemento } from './elementos'
 
 export interface ConteudoElemento {
-  essencia:      string
-  estacao:       string
-  orgaos:        string
-  emocao:        string
-  personalidade: string
-  pontos:        string[]
-  desafios:      string[]
-  praticas:      string[]
-  alimentacao:   string
-  cores:         string
+  essencia:            string
+  estacao:             string
+  orgaos:              string
+  emocao:              string
+  descricaoAmbiente:   string
+  posicaoCiclo:        string
+  avisoAmbiente:       string
+  coresElemento:       string
+  coresNutricao:       string
+  formasFavoraveis:    string
+  formasMenos:         string
+  conclusao:           string
 }
 
 export const CONTEUDO: Record<Elemento, ConteudoElemento> = {
-  madeira: {
-    essencia:      'A força que rompe a terra e alcança a luz. Crescimento que não pode ser contido.',
-    estacao:       'Primavera',
-    orgaos:        'Fígado e Vesícula Biliar',
-    emocao:        'Raiva → Criatividade',
-    personalidade: 'A Madeira representa impulso vital e expansão. Pessoas deste elemento são visionárias, líderes naturais, pioneiras — precisam avançar, crescer, construir. Assertivas e diretas, com capacidade natural de planejamento e execução. A frustração é seu sinal de desequilíbrio.',
-    pontos:   ['Visão estratégica', 'Liderança natural', 'Criatividade e inovação', 'Determinação e foco', 'Capacidade de inspirar'],
-    desafios: ['Impaciência e irritabilidade', 'Dificuldade com autoridade', 'Tensão muscular e tendões', 'Perfeccionismo competitivo'],
-    praticas: ['Acupuntura (fígado/VB)', 'Shiatsu', 'Yoga dinâmico', 'Artes marciais', 'Journaling criativo', 'Caminhadas em florestas'],
-    alimentacao: 'Alimentos verdes e levemente azedos: limão, folhas verdes, broto, vinagre de maçã. Reduzir álcool.',
-    cores: 'Verde em todas as nuances · Teal · Esmeralda',
-  },
-
-  fogo: {
-    essencia:      'A luz que ilumina e aquece. A alegria que transforma tudo ao redor.',
-    estacao:       'Verão',
-    orgaos:        'Coração e Intestino Delgado',
-    emocao:        'Euforia → Alegria',
-    personalidade: 'O Fogo representa expansão, conexão e alegria de viver. Pessoas deste elemento são carismáticas, expressivas, comunicadoras natas. Falam com o coração e inspiram com presença. Criam ambientes de calor e entusiasmo. O excesso leva à ansiedade e dispersão.',
-    pontos:   ['Carisma e presença magnética', 'Comunicação apaixonada', 'Criação de conexões profundas', 'Entusiasmo contagiante', 'Inteligência emocional elevada'],
-    desafios: ['Ansiedade e palpitações', 'Insônia', 'Dispersão e falta de foco', 'Ciclos de euforia/tristeza'],
-    praticas: ['Acupuntura (coração/ID)', 'Musicoterapia', 'Arteterapia', 'Dança', 'Yoga suave', 'Meditação Metta'],
-    alimentacao: 'Amargos em moderação: chocolate amargo, verduras amargas. Evitar excesso de estimulantes.',
-    cores: 'Vermelho suave · Laranja · Rosa · Coral',
-  },
-
   terra: {
-    essencia:      'O centro que sustenta tudo. A terra firme sob os pés de todos que ama.',
-    estacao:       'Transição entre estações',
-    orgaos:        'Baço/Pâncreas e Estômago',
-    emocao:        'Preocupação → Concentração',
-    personalidade: 'A Terra representa nutrição, estabilidade e cuidado. Pessoas deste elemento são naturalmente cuidadoras — encontram propósito em nutrir e apoiar. Confiáveis, práticas, mediadoras natas. Profundamente empáticas, precisam aprender a cuidar de si tanto quanto cuidam dos outros.',
-    pontos:   ['Empatia profunda', 'Estabilidade emocional', 'Capacidade de criar harmonia', 'Senso prático', 'Lealdade e confiabilidade'],
-    desafios: ['Preocupação excessiva', 'Dificuldade em dizer não', 'Problemas digestivos', 'Tendência ao acúmulo'],
-    praticas: ['Acupuntura (baço/estômago)', 'Massagem ayurvédica', 'Jardinagem', 'Cozinhar com presença', 'Grounding', 'Yoga restaurativo'],
-    alimentacao: 'Alimentos amarelos e levemente doces: abóbora, batata-doce, milho, mel, cúrcuma. Refeições regulares.',
-    cores: 'Amarelo · Ocre · Laranja terroso · Bege quente',
+    essencia:   'O centro que sustenta tudo. A terra firme sob os pés de todos que ama.',
+    estacao:    'Transição entre estações',
+    orgaos:     'Baço/Pâncreas e Estômago',
+    emocao:     'Preocupação → Concentração',
+
+    descricaoAmbiente:
+      'O elemento Terra está ligado à estabilidade, segurança e acolhimento.',
+
+    posicaoCiclo:
+      'Ele se posiciona no ciclo entre o Fogo (que o nutre) e o Metal (que recebe sua energia), o que faz com que a pessoa Terra tenha uma tendência natural ao cuidado, sustentação e equilíbrio.',
+
+    avisoAmbiente:
+      'Quando exposta por muito tempo a ambientes com predominância de cores, formas e materiais do elemento Metal — como branco, cinza, superfícies frias e formas muito rígidas ou circulares — pode sentir desconexão, frieza e perda de acolhimento.',
+
+    coresElemento:  'Bege, amarelo e tons terrosos',
+    coresNutricao:  'Vermelho e laranja (elemento Fogo, que nutre a Terra)',
+    formasFavoraveis: 'Quadradas, baixas e estáveis',
+    formasMenos:    'Circulares, metálicas e muito frias (em excesso)',
+
+    conclusao:
+      'Essas escolhas fortalecem a sensação de segurança, acolhimento e estabilidade.',
   },
 
   metal: {
-    essencia:      'A clareza que corta como aço. A leveza de quem sabe soltar.',
-    estacao:       'Outono',
-    orgaos:        'Pulmão e Intestino Grosso',
-    emocao:        'Tristeza → Clareza',
-    personalidade: 'O Metal representa o poder de definir limites e buscar excelência. Pessoas deste elemento são organizadas, detalhistas, com senso estético apurado. Valorizam qualidade sobre quantidade e carregam ética profunda — às vezes lida como rigidez, mas nascida de integridade genuína.',
-    pontos:   ['Pensamento analítico e preciso', 'Senso estético elevado', 'Comprometimento e responsabilidade', 'Capacidade de criar ordem', 'Discernimento e síntese'],
-    desafios: ['Perfeccionismo excessivo', 'Dificuldade em se desapegar', 'Vulnerabilidade à melancolia', 'Rigidez e inflexibilidade'],
-    praticas: ['Acupuntura (pulmão/IG)', 'Qi Gong respiratório', 'Meditação vipassana', 'Journaling', 'Organização de espaços'],
-    alimentacao: 'Alimentos brancos e levemente picantes: pera, nabo, alho, raiz-forte. Evitar laticínios em excesso.',
-    cores: 'Branco · Cinza suave · Tons neutros frios',
+    essencia:   'A clareza que corta como aço. A leveza de quem sabe soltar.',
+    estacao:    'Outono',
+    orgaos:     'Pulmão e Intestino Grosso',
+    emocao:     'Tristeza → Clareza',
+
+    descricaoAmbiente:
+      'O elemento Metal está associado à clareza, organização e precisão.',
+
+    posicaoCiclo:
+      'Ele se posiciona no ciclo após a Terra (que o nutre) e antes da Água (que recebe sua energia), indicando uma natureza mais analítica, estruturada e refinada.',
+
+    avisoAmbiente:
+      'Quando exposto por longos períodos a ambientes com predominância de cores, formas e elementos da Água — como tons escuros, excesso de azul/preto e formas muito fluidas — pode sentir dispersão, indecisão e perda de foco.',
+
+    coresElemento:  'Branco, cinza e tons metalizados',
+    coresNutricao:  'Bege e tons terrosos (elemento Terra, que nutre o Metal)',
+    formasFavoraveis: 'Circulares, arredondadas e simétricas',
+    formasMenos:    'Sinuosas, irregulares e muito fluidas (em excesso)',
+
+    conclusao:
+      'Essas escolhas promovem clareza, organização e eficiência no dia a dia.',
+  },
+
+  fogo: {
+    essencia:   'A luz que ilumina e aquece. A alegria que transforma tudo ao redor.',
+    estacao:    'Verão',
+    orgaos:     'Coração e Intestino Delgado',
+    emocao:     'Euforia → Alegria',
+
+    descricaoAmbiente:
+      'O elemento Fogo está relacionado à expressão, vitalidade e presença.',
+
+    posicaoCiclo:
+      'Ele se posiciona no ciclo após a Madeira (que o nutre) e antes da Terra (que recebe sua energia). Isso significa que a pessoa Fogo tende a irradiar energia e intensidade, direcionando essa força para o ambiente ao seu redor.',
+
+    avisoAmbiente:
+      'Quando exposta por longos períodos a ambientes com predominância de cores, formas e elementos da Terra — como tons terrosos, bege, amarelados e formas quadradas — pode sentir estagnação, cansaço e perda de entusiasmo.',
+
+    coresElemento:  'Vermelho, laranja e tons quentes',
+    coresNutricao:  'Verde e tons amadeirados como o marrom (elemento Madeira, que nutre o Fogo)',
+    formasFavoraveis: 'Triangulares, pontiagudas e ascendentes',
+    formasMenos:    'Quadradas, pesadas e estáticas (em excesso)',
+
+    conclusao:
+      'Essas escolhas ajudam a manter sua energia em movimento, favorecendo entusiasmo, expressão e presença.',
   },
 
   agua: {
-    essencia:      'A profundidade que sustenta toda vida. A força que flui sem resistência.',
-    estacao:       'Inverno',
-    orgaos:        'Rim e Bexiga',
-    emocao:        'Medo → Sabedoria',
-    personalidade: 'A Água representa profundidade, reserva e sabedoria. Pessoas deste elemento são introspectivas, filosóficas, com memória extraordinária e dom para estratégia. Resilientes — contornam obstáculos em vez de confrontar. Leais quando confiam, misteriosas para quem não conhecem.',
-    pontos:   ['Profundidade intelectual', 'Intuição aguçada', 'Perseverança e resiliência', 'Visão de longo prazo', 'Memória extraordinária'],
-    desafios: ['Tendência ao isolamento', 'Medo paralisante', 'Cansaço crônico', 'Análise excessiva'],
-    praticas: ['Acupuntura (rim/bexiga)', 'Reiki', 'Hidroterapia', 'Banhos terapêuticos', 'Meditação próxima à água', 'Tai Chi Chuan'],
-    alimentacao: 'Alimentos escuros: feijão preto, nozes, alga marinha, peixe. Hidratação constante.',
-    cores: 'Azul profundo · Índigo · Azul-marinho',
+    essencia:   'A profundidade que sustenta toda vida. A força que flui sem resistência.',
+    estacao:    'Inverno',
+    orgaos:     'Rim e Bexiga',
+    emocao:     'Medo → Sabedoria',
+
+    descricaoAmbiente:
+      'O elemento Água está posicionado no ciclo entre o Metal (que o nutre) e a Madeira (que recebe sua energia). Isso significa que a pessoa Água é naturalmente doadora de energia, especialmente para o elemento Madeira.',
+
+    posicaoCiclo:
+      'Por isso, quando exposta por longos períodos a ambientes com predominância de cores, formas e materiais do elemento Madeira — como verdes, tons amadeirados e o uso excessivo da própria madeira — pode sentir desgaste, cansaço e até uma sensação de energia drenada.',
+
+    avisoAmbiente:
+      'Para se manter equilibrada, nutrida e energizada, a pessoa de elemento Água se beneficia de ambientes que reforcem sua essência e sua fonte de nutrição.',
+
+    coresElemento:  'Azul e preto',
+    coresNutricao:  'Branco, cinza e tons metalizados (elemento Metal, que nutre a Água)',
+    formasFavoraveis: 'Sinuosas, curvas, circulares e orgânicas',
+    formasMenos:    'Retas, rígidas e muito estruturadas (em excesso)',
+
+    conclusao:
+      'Essas escolhas ajudam a restaurar sua energia, trazendo mais disposição, clareza e bem-estar no dia a dia.',
+  },
+
+  madeira: {
+    essencia:   'A força que rompe a terra e alcança a luz. Crescimento que não pode ser contido.',
+    estacao:    'Primavera',
+    orgaos:     'Fígado e Vesícula Biliar',
+    emocao:     'Raiva → Criatividade',
+
+    descricaoAmbiente:
+      'O elemento Madeira está posicionado no ciclo entre a Água (que o nutre) e o Fogo (que recebe sua energia). Isso significa que a pessoa Madeira é naturalmente direcionada ao crescimento, movimento e expansão, mas também tende a doar energia para o elemento Fogo.',
+
+    posicaoCiclo:
+      'Quando exposta por longos períodos a ambientes com predominância de cores, formas e estímulos do elemento Fogo — como vermelhos, laranjas, amarelos intensos e formas pontiagudas ou triangulares — pode sentir desgaste, irritação e uma sensação de esgotamento energético.',
+
+    avisoAmbiente:
+      'Para manter seu equilíbrio, vitalidade e clareza, a pessoa de elemento Madeira se beneficia de ambientes que reforcem sua base e sua nutrição.',
+
+    coresElemento:  'Verde e tons amadeirados',
+    coresNutricao:  'Azul e preto (elemento Água, que nutre a Madeira)',
+    formasFavoraveis: 'Retangulares, verticais e alongadas',
+    formasMenos:    'Triangulares, pontiagudas e muito quentes (em excesso)',
+
+    conclusao:
+      'Essas escolhas ajudam a sustentar sua energia, promovendo mais disposição, foco e sensação de fluidez no dia a dia.',
   },
 }
