@@ -11,23 +11,26 @@ export default function HeroSection() {
       id="inicio"
       style={{
         background: 'var(--surface)',
-        padding: 'clamp(2.5rem, 5vw, 4rem) 1.5rem clamp(2rem, 4vw, 3rem)',
+        padding: 'clamp(1.75rem, 4vw, 3rem) 1.5rem clamp(1.5rem, 3vw, 2.5rem)',
       }}
     >
-      <div style={{
-        maxWidth: '1200px',
-        margin: '0 auto',
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 480px), 1fr))',
-        gap: 'clamp(2rem, 4vw, 3.5rem)',
-        alignItems: 'center',
-      }}>
+      <div
+        className="hero-grid"
+        style={{
+          maxWidth: '1200px',
+          margin: '0 auto',
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 480px), 1fr))',
+          gap: 'clamp(1.5rem, 3vw, 3rem)',
+          alignItems: 'center',
+        }}
+      >
         {/* Texto */}
         <motion.div
           variants={stagger}
           initial="hidden"
           animate="visible"
-          style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}
+          style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}
         >
           {/* Tag */}
           <motion.p variants={fadeUp} className="section-tag">
@@ -79,9 +82,6 @@ export default function HeroSection() {
               Descubra Seu Elemento
               <span style={{ marginLeft: '8px' }}>→</span>
             </Link>
-            <Link href="#como-funciona" style={btnGhostStyle}>
-              Como funciona? ↓
-            </Link>
           </motion.div>
         </motion.div>
 
@@ -90,6 +90,7 @@ export default function HeroSection() {
           variants={slideRight}
           initial="hidden"
           animate="visible"
+          className="hero-diagrama"
           style={{
             display: 'flex',
             justifyContent: 'center',
@@ -99,6 +100,15 @@ export default function HeroSection() {
           <DiagramaCiclo size={380} interactive />
         </motion.div>
       </div>
+
+      <style>{`
+        @media (max-width: 640px) {
+          .hero-diagrama {
+            justify-content: center !important;
+            width: 100%;
+          }
+        }
+      `}</style>
     </section>
   )
 }

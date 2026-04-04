@@ -11,7 +11,7 @@ export default function ApresentacaoSection() {
       style={{
         background: 'var(--surface)',
         borderTop:  '1px solid var(--border)',
-        padding:    'clamp(3rem, 6vw, 5rem) 1.5rem',
+        padding:    'clamp(1.75rem, 4vw, 3rem) 1.5rem',
       }}
     >
       <div style={{
@@ -31,49 +31,49 @@ export default function ApresentacaoSection() {
           initial="hidden"
           whileInView="visible"
           viewport={viewportOpts}
+          className="fran-foto-wrapper"
           style={{
-            position:     'relative',
-            display:      'flex',
+            display:        'flex',
             justifyContent: 'center',
+            alignItems:     'center',
           }}
         >
-          {/* Anel decorativo */}
-          <div style={{
-            position:     'absolute',
-            inset:        '-12px',
-            borderRadius: '50% 46% 52% 48% / 48% 52% 46% 50%',
-            border:       '1px solid var(--sage-l)',
-            opacity:      0.45,
-            zIndex:       0,
-          }} />
-          <div style={{
-            position:     'absolute',
-            inset:        '-26px',
-            borderRadius: '48% 52% 50% 48% / 50% 48% 52% 50%',
-            border:       '1px solid var(--sage-l)',
-            opacity:      0.2,
-            zIndex:       0,
-          }} />
+          {/* Container com anéis + imagem */}
+          <div style={{ position: 'relative', width: '260px', flexShrink: 0 }}>
+            {/* Anéis decorativos */}
+            <div style={{
+              position:     'absolute',
+              inset:        '-12px',
+              borderRadius: '50% 46% 52% 48% / 48% 52% 46% 50%',
+              border:       '1px solid var(--sage-l)',
+              opacity:      0.45,
+            }} />
+            <div style={{
+              position:     'absolute',
+              inset:        '-26px',
+              borderRadius: '48% 52% 50% 48% / 50% 48% 52% 50%',
+              border:       '1px solid var(--sage-l)',
+              opacity:      0.2,
+            }} />
 
-          {/* Imagem */}
-          <div style={{
-            position:     'relative',
-            zIndex:       1,
-            borderRadius: '50% 46% 52% 48% / 48% 52% 46% 50%',
-            overflow:     'hidden',
-            width:        '100%',
-            maxWidth:     '300px',
-            aspectRatio:  '3 / 4',
-            background:   'var(--sage-xl)',
-          }}>
-            <Image
-              src="/Fran.png"
-              alt="Françoise Lemos — Designer de Interiores especialista em Design Holístico"
-              fill
-              style={{ objectFit: 'cover', objectPosition: 'top center' }}
-              sizes="(max-width: 768px) 70vw, 300px"
-              priority
-            />
+            {/* Imagem */}
+            <div style={{
+              position:    'relative',
+              borderRadius:'50% 46% 52% 48% / 48% 52% 46% 50%',
+              overflow:    'hidden',
+              width:       '260px',
+              height:      '320px',
+              background:  'var(--sage-xl)',
+            }}>
+              <Image
+                src="/Fran.png"
+                alt="Françoise Lemos — Designer de Interiores especialista em Design Holístico"
+                fill
+                style={{ objectFit: 'cover', objectPosition: 'top center' }}
+                sizes="(max-width: 640px) 260px, 260px"
+                priority
+              />
+            </div>
           </div>
         </motion.div>
 
@@ -158,16 +158,21 @@ export default function ApresentacaoSection() {
 
       </div>
 
-      {/* Responsivo: coluna única em mobile */}
       <style>{`
         @media (max-width: 640px) {
           .apresentacao-grid {
             grid-template-columns: 1fr !important;
             text-align: center;
           }
-          .apresentacao-grid > div:first-child {
-            margin: 0 auto;
-            max-width: 220px;
+          .fran-foto-wrapper {
+            justify-content: center;
+          }
+          .fran-foto-wrapper > div {
+            width: 180px !important;
+          }
+          .fran-foto-wrapper > div > div:last-child {
+            width: 180px !important;
+            height: 220px !important;
           }
         }
       `}</style>

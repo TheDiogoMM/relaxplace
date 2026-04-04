@@ -10,7 +10,7 @@ export default function CTABand() {
       style={{
         background: 'var(--sage-xl)',
         borderTop: '1px solid var(--border)',
-        padding: 'clamp(2.5rem, 4vw, 3.5rem) 1.5rem',
+        padding: 'clamp(1.75rem, 3vw, 2.5rem) 1.5rem',
       }}
     >
       <motion.div
