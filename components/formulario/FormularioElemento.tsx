@@ -66,7 +66,7 @@ export default function FormularioElemento() {
       if (erros[campo]) setErros(er => ({ ...er, [campo]: undefined }))
     }
 
-  const submit = (e: React.FormEvent) => {
+  const submit = async (e: React.FormEvent) => {
     e.preventDefault()
     const novosErros = validar(form)
     if (Object.keys(novosErros).length > 0) {
@@ -78,7 +78,26 @@ export default function FormularioElemento() {
     // Ajuste de fuso: evitar off-by-one
     const dataLocal = new Date(data.getUTCFullYear(), data.getUTCMonth(), data.getUTCDate())
     const elemento  = calcularElemento(dataLocal)
-    const params    = new URLSearchParams({
+
+    // Salvar na planilha (erro não bloqueia o fluxo)
+    try {
+      await fetch('/api/cadastro', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          nome:       form.nome.trim(),
+          sobrenome:  form.sobrenome.trim(),
+          nascimento: form.nascimento,
+          telefone:   form.telefone,
+          email:      form.email,
+          elemento,
+        }),
+      })
+    } catch {
+      // ignora falha de rede — o usuário ainda é redirecionado
+    }
+
+    const params = new URLSearchParams({
       nome: `${form.nome.trim()} ${form.sobrenome.trim()}`,
     })
     router.push(`/elemento/${elemento}?${params}`)
