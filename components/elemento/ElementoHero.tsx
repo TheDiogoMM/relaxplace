@@ -80,53 +80,6 @@ export default function ElementoHero({ elemento, conteudo, nomeUsuario }: Props)
           {nome}
         </motion.h1>
 
-        {/* Badges */}
-        <motion.div
-          variants={fadeUp}
-          style={{
-            display: 'flex',
-            gap: '0.5rem',
-            flexWrap: 'wrap',
-            justifyContent: 'center',
-          }}
-        >
-          {[conteudo.estacao, conteudo.orgaos].map(tag => (
-            <span key={tag} style={{
-              background: cores.bg,
-              color: cores.d,
-              fontFamily: 'var(--font-ui)',
-              fontSize: '0.7rem',
-              fontWeight: 500,
-              letterSpacing: '0.08em',
-              textTransform: 'uppercase',
-              padding: '4px 12px',
-              borderRadius: '9999px',
-              border: `1px solid ${cores.c}30`,
-            }}>
-              {tag}
-            </span>
-          ))}
-        </motion.div>
-
-        {/* Essência */}
-        <motion.p
-          variants={fadeUp}
-          style={{
-            fontFamily: 'var(--font-body)',
-            fontStyle: 'italic',
-            fontSize: 'clamp(1rem, 2.5vw, 1.125rem)',
-            color: 'var(--ink-2)',
-            lineHeight: 1.75,
-            maxWidth: '480px',
-            margin: 0,
-            borderLeft: `3px solid ${cores.c}`,
-            paddingLeft: '1.25rem',
-            textAlign: 'left',
-          }}
-        >
-          {conteudo.essencia}
-        </motion.p>
-
         {/* Emoção */}
         <motion.div
           variants={fadeUp}

@@ -22,7 +22,7 @@ export default function ElementoConteudo({ elemento, conteudo, ciclo: _ciclo }: 
     }}>
       <div style={{ maxWidth: '860px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '2rem' }}>
 
-        {/* Bloco principal: Ambiente */}
+        {/* Bloco Ambiente & Energia — topo */}
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -48,7 +48,6 @@ export default function ElementoConteudo({ elemento, conteudo, ciclo: _ciclo }: 
             {conteudo.posicaoCiclo}
           </p>
 
-          {/* Aviso */}
           <div style={{
             background:   cores.bg,
             borderRadius: '10px',
@@ -177,6 +176,27 @@ export default function ElementoConteudo({ elemento, conteudo, ciclo: _ciclo }: 
               {conteudo.formasMenos}
             </p>
           </div>
+        </motion.div>
+
+        {/* Essência — após os cards */}
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOpts}
+        >
+          <p style={{
+            fontFamily:  'var(--font-body)',
+            fontStyle:   'italic',
+            fontSize:    'clamp(1rem, 2.5vw, 1.125rem)',
+            color:       'var(--ink-2)',
+            lineHeight:  1.75,
+            margin:      0,
+            borderLeft:  `3px solid ${cores.c}`,
+            paddingLeft: '1.25rem',
+          }}>
+            {conteudo.essencia}
+          </p>
         </motion.div>
 
         {/* Conclusão */}
