@@ -5,8 +5,8 @@ import { useEffect, useState } from 'react'
 import Logo from './Logo'
 
 const NAV_LINKS = [
-  { href: '/#inicio',        label: 'Início'        },
-  { href: '/#como-funciona', label: 'Como Funciona' },
+  { href: '/#inicio',      label: 'Início'      },
+  { href: '/#especialista', label: 'Especialista' },
 ]
 
 export default function Navbar() {
@@ -56,7 +56,7 @@ export default function Navbar() {
         }}>
           {/* Logo */}
           <Link href="/" onClick={closeMenu} aria-label="Página inicial Relax Place">
-            <Logo height={38} />
+            <Logo height={48} />
           </Link>
 
           {/* Links desktop */}

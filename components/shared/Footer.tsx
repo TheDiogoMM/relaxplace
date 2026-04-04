@@ -58,7 +58,7 @@ export default function Footer() {
         }}>
           {[
             { href: '/#inicio',        label: 'Início'        },
-            { href: '/#como-funciona', label: 'Como Funciona' },
+            { href: '/#especialista',  label: 'Especialista'  },
           ].map((link, i) => (
             <span key={link.href} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
               {i > 0 && <span style={{ color: 'var(--border-2)', fontSize: '0.75rem' }}>·</span>}
